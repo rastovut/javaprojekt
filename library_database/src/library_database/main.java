@@ -15,7 +15,7 @@ public class main {
 	
 	
 	public static void main(String[] args) {
-		Connection conn = connect.connectdb("skusobne4.db");
+		Connection conn = connect.connectdb("databaza.db");
 		Scanner sc = new Scanner(System.in);
 		try {
 			newdatabase.createNewtable(conn);
@@ -67,18 +67,21 @@ public class main {
 	        	}
 	        
 	        	
-	        	System.out.println("Stav dostupnosti 0-1:");
 	        	
-	        	int dostupnost = 0;
+	        	
+	        	int dostupnost = 2;
 	        	
 	        
 	        	try {
-	        		if (sc.nextInt()<2) {
+	        		while (dostupnost >1) {
+	        			System.out.println("Stav dostupnosti 0-1:");
 	        			dostupnost = sc.nextInt();
 	        		}
-	        		else {
-	        			System.out.println("Nezadali ste spravny parameter, defaultne nastavene na nedostupne");
-	        		}
+	        		
+	        			
+	        		
+	        		
+	        	
 	        	}
 	        	catch(Exception e) {
 	        		System.out.println("Nezadali ste spravny parameter, defaultne nastavene na nedostupne");
@@ -86,8 +89,8 @@ public class main {
 	        	
 	        		
 	        	
-	        	sc.nextLine();
 	        	
+	        	sc.nextLine();
 	        	System.out.println("Zadaj doplnujuce info:");
 	        	String extra = sc.nextLine();
 	        	insertbook.pridajzaznam(conn, autor, nazov_knihy, rok, dostupnost, typ, extra);
